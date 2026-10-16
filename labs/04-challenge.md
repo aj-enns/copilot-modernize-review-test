@@ -20,12 +20,12 @@ unit tests and browser tests that need to change. Wait before editing.
 ## Implement and test (9 minutes)
 
 ```text
-Apply the approved change only in my attendee workspace. Add boundary tests
+Apply the approved change only under starter. Add boundary tests
 for 13 and 14 nights and update any affected maximum-boundary expectations.
 Update the visible pricing explanation and this workspace's business
 instructions so they agree. Preserve existing API validation and error tests.
 Run unit and managed-server browser tests; report actual results.
-Do not edit the original starter/reference checkpoints, commit, or push.
+Do not edit reference checkpoints, commit, or push.
 ```
 
 If working in `starter`, repository-wide instructions are shared with the

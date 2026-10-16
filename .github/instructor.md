@@ -1,5 +1,10 @@
 # Instructor runbook
 
+This file is for instructors and maintainers, not part of the student walkthrough.
+The student entry point is the [README](../README.md), followed by
+[setup and preflight](../docs/setup.md). All command paths below are relative to
+the repository root, not this `.github` directory.
+
 ## Timing (150 minutes exactly)
 
 | Elapsed | Activity | Stop condition |
@@ -24,11 +29,11 @@ upgrade is not a Windows .NET Framework migration. For this small app the
 correct upgrade can be just two configuration files. Resist padding the demo
 with unnecessary package/API changes.
 
-Keep the attendee workspace on `starter`; open repository root only when
-demonstrating instructions and the inert review fixture. Reference solutions
-are outside the attendee workspace and should not be attached to prompts.
-This is context separation, not a security boundary: an agent with filesystem
-tools could still read them, so the prompt explicitly prohibits it.
+Have students open the repository root with **File > Open Folder...** or `code .`.
+Their app and generated tests belong under `starter`. Reference solutions are
+visible in Explorer, but prompts prohibit reading them unless explicitly asked.
+Encourage students to try first, then use the README's reference help guide if
+stuck. This is a teaching convention, not a security boundary.
 
 If the upgrade agent spends more than 10 minutes blocked, use the prompt
 fallback or a fresh modernized checkpoint and explain which experience was
