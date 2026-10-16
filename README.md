@@ -1,6 +1,6 @@
 # Copilot: modernize, review, and test
 
-![Copilot: modernize, review, and test logo .](../docs/images/repo-logo.png)
+![Copilot: modernize, review, and test logo .](./docs/images/repo-logo.png)
 
 A 150-minute student workshop in VS Code: upgrade a booking app from .NET 8 to
 .NET 10, review code, and create unit and browser tests. Runs locally; no cloud
