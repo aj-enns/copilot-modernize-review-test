@@ -107,9 +107,17 @@ Observed on Windows, October 16, 2026:
 | Git Bash preflight/recovery on Windows | Passed; both copied checkpoints built; existing destination rejected |
 | Checkpoint source parity | Program, calculator and HTML match exactly |
 | Java local execution | Not run: JDK and Maven absent on the authoring host |
+| Linux core CI | Build, 11 xUnit cases, 4 Chromium tests and bash recovery passed |
+| Linux Java 17 starter CI | 2 test methods passed; console printed USD 756.00 |
+| Linux Java 21 reference CI | 2 test methods passed; console printed USD 756.00 |
 
-CI is configured to verify Java 17/21 and the core reference on Linux. A
-configured workflow is not a passed run: inspect the repository's Actions tab.
+Initial cross-platform evidence:
+[successful publication run](https://github.com/aj-enns/copilot-modernize-review-test/actions/runs/38954662063).
+CI verifies Java 17/21 and the core reference on Linux. The workflow uses
+Ubuntu 24.04 explicitly to avoid an event-time change of the `ubuntu-latest`
+image and current supported action majors rather than deprecated Node 20
+actions. Inspect the latest run in the repository's Actions tab before class;
+a previous passing run is not proof that a subsequent change still works.
 Bash scripts were also exercised with Git Bash on Windows; macOS-specific
 setup still needs pre-event verification on the actual attendee OS.
 Copilot prompts and extension interactions are documented from current official
