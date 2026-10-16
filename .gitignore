@@ -1,0 +1,11 @@
+**/bin/
+**/obj/
+**/node_modules/
+**/playwright-report/
+**/test-results/
+**/target/
+.work/
+.DS_Store
+.vs/
+*.user
+*.log

@@ -1,0 +1,14 @@
+{
+  "folders": [{ "path": "starter" }],
+  "settings": {
+    "chat.useCustomizationsInParentRepositories": true
+  },
+  "extensions": {
+    "recommendations": [
+      "GitHub.copilot",
+      "GitHub.copilot-chat",
+      "ms-dotnettools.csdevkit",
+      "ms-playwright.playwright"
+    ]
+  }
+}

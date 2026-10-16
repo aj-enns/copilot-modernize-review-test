@@ -1,0 +1,62 @@
+name: Verify workshop checkpoints
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  core:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: |
+            8.0.x
+            10.0.x
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: reference/e2e/package-lock.json
+      - run: dotnet build starter/BookingLab --configuration Release
+      - run: dotnet test reference/tests/BookingLab.Tests --configuration Release
+      - name: Verify non-destructive bash checkpoints
+        run: |
+          bash scripts/checkpoint.sh starter ci-starter
+          bash scripts/checkpoint.sh modernized ci-modernized
+          if bash scripts/checkpoint.sh starter ci-starter; then
+            echo "Existing checkpoint was incorrectly overwritten"
+            exit 1
+          fi
+          (cd .work/ci-starter && dotnet build BookingLab --configuration Release)
+          (cd .work/ci-modernized && dotnet build BookingLab --configuration Release)
+      - run: npm ci
+        working-directory: reference/e2e
+      - run: npx playwright install --with-deps chromium
+        working-directory: reference/e2e
+      - run: npm test
+        working-directory: reference/e2e
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: playwright-failures
+          path: reference/e2e/test-results
+  java:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - java: '17'
+            project: starter
+          - java: '21'
+            project: reference
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: microsoft
+          java-version: ${{ matrix.java }}
+          cache: maven
+      - run: mvn --batch-mode --file optional/java/${{ matrix.project }}/pom.xml test
+      - run: mvn --batch-mode --file optional/java/${{ matrix.project }}/pom.xml exec:java -Dexec.mainClass=workshop.Booking
