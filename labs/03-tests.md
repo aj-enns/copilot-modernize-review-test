@@ -1,9 +1,10 @@
 # Lab 3 - Generate a test framework and tests (45 minutes)
 
-**Start:** .NET 10 attendee app; **no tests** in the attendee workspace.
+**Start:** .NET 10 app in `starter/BookingLab`; **no tests** under `starter` yet.
 **Finish:** your own xUnit project and Playwright suite with visible outcomes.
-Do not open `reference/tests` or `reference/e2e` until the debrief.
-Return to the attendee workspace after the review lab.
+Try generating your own tests first. If you get stuck, preserve your attempt,
+then use `reference/tests` or `reference/e2e` for help. Explicitly ask Copilot to
+read a reference if you want it explained. Keep the repository root open.
 
 ## 1. Instructions-first unit tests (15 minutes)
 
@@ -11,8 +12,8 @@ Use built-in Agent with the repository instructions active. Invoke
 `/quote-tests` if available, or copy this prompt:
 
 ```text
-Read BookingLab/QuoteCalculator.cs and our business contract, not reference
-solutions. Create an xUnit test project at tests/BookingLab.Tests targeting
+Read starter/BookingLab/QuoteCalculator.cs and our business contract, not reference
+solutions. Create an xUnit test project at starter/tests/BookingLab.Tests targeting
 .NET 10 and reference the application project. Use Microsoft.NET.Test.Sdk,
 xunit, and the Visual Studio xUnit runner with compatible pinned versions.
 Use theory data for 1 and 30 nights, 1 and 6 guests, 6 versus 7 nights, and
@@ -28,10 +29,10 @@ not `reference`. Example known-compatible package versions are Test SDK
 compatibility before accepting. It should not add a database or mocking package
 to test this pure calculator.
 
-From the attendee workspace root:
+In a new terminal at repository root:
 
 ```text
-dotnet test tests/BookingLab.Tests
+dotnet test starter/tests/BookingLab.Tests
 ```
 
 Expected independently computed totals: 1/1 = 110, 6/2 = 720, 7/2 = 756,
@@ -49,7 +50,7 @@ It has no hardcoded model or brittle tool IDs; normal permissions still apply.
 Unlike auto-applied instructions, this role must be selected.
 
 ```text
-Create a Node Playwright Test framework in e2e for the attendee BookingLab.
+Create a Node Playwright Test framework in starter/e2e for starter/BookingLab.
 Pin @playwright/test, create a package-lock.json, and add an npm test script.
 Use Chromium, baseURL http://127.0.0.1:5180, and a managed webServer command
 that runs ../BookingLab with --no-launch-profile and --urls on that address.
@@ -63,11 +64,11 @@ manually started server. Install Chromium if needed, run tests, and report
 the commands and actual results.
 ```
 
-Stop your manual app server with Ctrl+C **before** this command. From attendee
-workspace root, the same commands work in PowerShell and bash:
+Stop your manual app server with Ctrl+C **before** this command. In a new terminal
+at repository root, the same commands work in PowerShell and bash:
 
 ```text
-cd e2e
+cd starter/e2e
 npm ci
 npx playwright install chromium
 npm test
@@ -116,8 +117,8 @@ npx playwright install chromium
 npm test
 ```
 
-Reference paths are relative to the repository root, not your attendee
-workspace. The reference server tests .NET 10, not a partially upgraded app.
+Reference paths are relative to the repository root. The reference server tests
+.NET 10, not a partially upgraded app.
 
 Sources: [custom agents](https://code.visualstudio.com/docs/agent-customization/custom-agents),
 [prompt files](https://code.visualstudio.com/docs/agent-customization/prompt-files),

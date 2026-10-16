@@ -6,8 +6,7 @@ or served. Do not replace the working calculator with it.
 
 ## 1. Read the review contract (5 minutes)
 
-Open the repository root in a second VS Code window for this lab only:
-`code .` from a terminal at repository root. Read
+Keep the repository root open in VS Code. Read
 `.github/copilot-instructions.md` and
 `.github/instructions/csharp.instructions.md` (`applyTo: "**/*.cs"`).
 The contract intentionally calls attention to inclusive bounds and the exact
@@ -55,15 +54,16 @@ Apply fixes only to the **fixture**, inspect the resulting diff, and ask for a
 regression test for each accepted issue. Applying a local suggestion does not
 commit it. Do not blindly accept arithmetic rewrites or weakened validation.
 If no comments appear, manually evaluate 0 nights and exactly 7 nights and
-explain whether the contract is met. The instructor answer key is separate in
-`reference/review-notes.md`.
+explain whether the contract is met. Do not inspect worked answers in `reference`
+during the exercise.
 
 ## 4. GitHub PR review demonstration (5 minutes)
 
 This is distinct from local review. Use an attendee-owned fork and a new branch
 if demonstrating it; do not request write access to this public training repo.
-The instructor can demonstrate an existing PR rather than spend lab time
-configuring forks. Do not publish generated answers or secrets.
+If you are attending a class, follow along with the instructor's existing PR
+instead of configuring a fork when directed. Do not publish generated answers
+or secrets.
 
 In a fork, make a harmless fixture-only change on a new branch, commit and
 push it, then open a PR. On GitHub's PR sidebar, request **Copilot** as reviewer.

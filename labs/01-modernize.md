@@ -1,18 +1,30 @@
 # Lab 1 - Modernize .NET (35 minutes)
 
-**Start:** open `attendee.code-workspace`; terminal in `starter`; app builds
+**Start:** open the repository folder in VS Code; terminal in `starter`; app builds
 on .NET 8. **Finish:** the same UI and API work on .NET 10.
 This tiny dependency-free app makes the version upgrade intentionally low risk;
 real applications require dependency compatibility and breaking-change analysis.
 
 ## 1. Assess and plan (10 minutes)
 
-Install **GitHub Copilot upgrade** before class. In VS Code Chat send `@upgrade`
-or select **Upgrade** in the Agent picker. This is not the old
-`@modernize-dotnet` handle. VS Code differs from Visual Studio's Modernize menu.
+Install the VS Code extension
+[GitHub Copilot upgrade](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.upgrade-agent).
+Open **Extensions** (Ctrl+Shift+X on Windows/Linux; Cmd+Shift+X on macOS) and search
+for `@id:ms-dotnettools.upgrade-agent`, then select **Install**.
+
+![GitHub Copilot upgrade extension by Microsoft, showing Disable and Uninstall buttons after installation.](../docs/images/github-copilot-upgrade.png)
+
+If you see **Disable** and **Uninstall**, it is already installed.
+
+In Copilot Chat, select **Upgrade** in the agent picker or send `@upgrade`.
+
+<img src="../docs/images/upgrade-agent-picker.png" alt="Open the Agent picker in Copilot Chat and choose Upgrade, with both controls highlighted." width="600">
+
+If unavailable, use **Agent** with the prompt below; this is the manual fallback,
+not the extension experience.
 
 ```text
-Assess this ASP.NET Core .NET 8 BookingLab workspace for an upgrade to .NET 10.
+Assess the ASP.NET Core .NET 8 app in starter/BookingLab for an upgrade to .NET 10.
 Do not inspect reference solutions. Inventory projects, SDK pins, dependencies,
 runtime/API risks, and verification gaps. Propose a minimal ordered plan that
 updates both TargetFramework and global.json while preserving quote semantics,
@@ -29,7 +41,7 @@ rather than assuming a fixed filename.
 ## 2. Execute and verify (10 minutes)
 
 ```text
-Apply the approved .NET 10 upgrade only in this attendee workspace. Update the
+Apply the approved .NET 10 upgrade only in starter. Update the
 SDK pin and target framework coherently, preserve all business behavior, build,
 and tell me which checks actually ran. Stop if a prerequisite is unavailable.
 Do not inspect reference solutions, change Git branches, commit, or push.
@@ -57,7 +69,7 @@ extension's assessment tools. Record that distinction.
 ## 3. Focused inline change (10 minutes)
 
 Select the error-message string in the `guests` validation in
-`BookingLab/QuoteCalculator.cs`. Open inline chat (Ctrl+I on Windows/Linux,
+`starter/BookingLab/QuoteCalculator.cs`. Open inline chat (Ctrl+I on Windows/Linux,
 Cmd+I on macOS), not an as-you-type completion:
 
 ```text
@@ -75,7 +87,7 @@ instructions are not applied to ordinary as-you-type inline suggestions.
 
 Explain why changing the target alone can leave a stale SDK pin, and why a
 successful build does not prove the weekly discount still works.
-The instructor reference at `reference/modernized` intentionally preserves the
+If you need help, `reference/modernized` intentionally preserves the
 original application sources; its only modernization changes are SDK and TFM.
 The inline message edit is optional and not required for matching the reference.
 
