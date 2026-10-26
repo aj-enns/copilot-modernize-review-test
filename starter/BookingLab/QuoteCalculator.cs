@@ -10,7 +10,7 @@ public sealed class QuoteCalculator
             throw new ArgumentOutOfRangeException(nameof(guests), "Guests must be a whole number from 1 through 6 inclusive.");
 
         decimal subtotal = nights * (100m + guests * 10m);
-        decimal discount = nights >= 7 ? 0.10m : 0m;
+        decimal discount = nights >= 14 ? 0.15m : nights >= 7 ? 0.10m : 0m;
         return decimal.Round(subtotal * (1m - discount), 2, MidpointRounding.AwayFromZero);
     }
 }

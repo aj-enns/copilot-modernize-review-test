@@ -5,8 +5,10 @@ exercises unless explicitly asked. Never integrate fixtures/review into the app.
 Preserve the .NET 8 starter and the .NET 10 reference as separate checkpoints.
 
 Business contract: nights 1..30 inclusive; guests 1..6 inclusive; USD 100 per
-night plus USD 10 per guest per night. At 7 nights inclusive, discount the whole
-subtotal by 10%. Use decimal for money, round to 2 places away from zero.
+night plus USD 10 per guest per night. Stays of 1..6 nights receive no discount;
+7..13 nights receive 10% off the whole subtotal; 14..30 nights receive 15% off
+the whole subtotal, replacing rather than stacking with the weekly discount.
+Use decimal for money, round to 2 places away from zero.
 Invalid inputs must fail explicitly; API validation returns HTTP 400.
 The UI must show failures and must not display a stale successful quote.
 

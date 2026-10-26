@@ -20,11 +20,24 @@ for (const { nights, guests, field } of [
 for (const { nights, guests, total } of [
   { nights: 1, guests: 1, total: 110 },
   { nights: 1, guests: 6, total: 160 },
-  { nights: 30, guests: 1, total: 2970 },
-  { nights: 30, guests: 6, total: 4320 },
+  { nights: 30, guests: 1, total: 2805 },
+  { nights: 30, guests: 6, total: 4080 },
 ]) {
   test(`accepts inclusive bounds nights=${nights}, guests=${guests}`, async ({ request }) => {
     const response = await request.post('/api/quote', { data: { nights, guests } });
+
+    expect(response.status()).toBe(200);
+    expect(await response.json()).toEqual({ total });
+  });
+}
+
+for (const { nights, total } of [
+  { nights: 13, total: 1404 },
+  { nights: 14, total: 1428 },
+  { nights: 30, total: 3060 },
+]) {
+  test(`applies a single discount for nights=${nights}, guests=2`, async ({ request }) => {
+    const response = await request.post('/api/quote', { data: { nights, guests: 2 } });
 
     expect(response.status()).toBe(200);
     expect(await response.json()).toEqual({ total });
