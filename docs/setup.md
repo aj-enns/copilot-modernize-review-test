@@ -83,7 +83,7 @@ do not change machine-wide execution policy.
 
 In Copilot Chat, select **Local** if a harness selector appears, then **Agent**.
 Check for **Test coach** in the agent picker and `/quote-tests` in the prompt
-picker. If missing, check **Chat: Open Customizations** or use the labs' copy/paste
+picker. If missing, open Command Palette and check **Chat: Open Customizations** or use the labs' copy/paste
 prompts. Inspect the lab before accepting any folder-trust request.
 
 Choose **Terminal > New Terminal** at repository root (the folder containing
