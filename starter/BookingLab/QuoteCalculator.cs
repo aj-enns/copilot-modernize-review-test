@@ -7,7 +7,7 @@ public sealed class QuoteCalculator
         if (nights is < 1 or > 30)
             throw new ArgumentOutOfRangeException(nameof(nights), "Nights must be between 1 and 30.");
         if (guests is < 1 or > 6)
-            throw new ArgumentOutOfRangeException(nameof(guests), "Guests must be between 1 and 6.");
+            throw new ArgumentOutOfRangeException(nameof(guests), "Guests must be a whole number from 1 through 6 inclusive.");
 
         decimal subtotal = nights * (100m + guests * 10m);
         decimal discount = nights >= 7 ? 0.10m : 0m;
