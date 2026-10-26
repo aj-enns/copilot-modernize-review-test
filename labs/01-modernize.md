@@ -7,21 +7,22 @@ real applications require dependency compatibility and breaking-change analysis.
 
 ## 1. Assess and plan (10 minutes)
 
-Install the VS Code extension
-[GitHub Copilot upgrade](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.upgrade-agent).
-Open **Extensions** (Ctrl+Shift+X on Windows/Linux; Cmd+Shift+X on macOS) and search
-for `@id:ms-dotnettools.upgrade-agent`, then select **Install**.
+1. Check whether the VS Code extension
+   [GitHub Copilot upgrade](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.upgrade-agent)
+   is installed. Open **Extensions** (Ctrl+Shift+X on Windows/Linux;
+   Cmd+Shift+X on macOS) and search for `@id:ms-dotnettools.upgrade-agent`.
+   If the extension is not installed, select **Install**. If you see **Disable**
+   and **Uninstall**, it is already installed.
 
 ![GitHub Copilot upgrade extension by Microsoft, showing Disable and Uninstall buttons after installation.](../docs/images/github-copilot-upgrade.png)
 
-If you see **Disable** and **Uninstall**, it is already installed.
-
-In Copilot Chat, select **Upgrade** in the agent picker or send `@upgrade`.
+2. In Copilot Chat, check whether **Upgrade** is available in the agent picker.
+   If it is, select **Upgrade** or send `@upgrade`. If it is not, select the
+   standard **Agent**; this is the manual fallback, not the extension experience.
 
 <img src="../docs/images/upgrade-agent-picker.png" alt="Open the Agent picker in Copilot Chat and choose Upgrade, with both controls highlighted." width="600">
 
-If unavailable, use **Agent** with the prompt below; this is the manual fallback,
-not the extension experience.
+3. With the selected agent, send the prompt below:
 
 ```text
 Assess the ASP.NET Core .NET 8 app in starter/BookingLab for an upgrade to .NET 10.
@@ -32,11 +33,11 @@ the JSON contract, and the UI. Do not add Azure services or new packages.
 Do not switch branches, commit, or push. Wait for my approval before editing.
 ```
 
-Inspect the assessment and proposed changes. In this app there are no third-party
-runtime packages to upgrade; "nothing else required" is a valid finding.
-Require a verification plan even though tests have not been generated yet.
-Generated assessment/plan locations vary by extension release; follow its links
-rather than assuming a fixed filename.
+4. Inspect the assessment and proposed plan before approving any edits. Require a
+   verification plan, even though tests have not been generated yet. This app may
+   need no third-party runtime package upgrades; "nothing else required" is a
+   valid finding. Assessment and plan output locations vary by extension release,
+   so follow the links provided rather than assuming a fixed filename.
 
 ## 2. Execute and verify (10 minutes)
 
