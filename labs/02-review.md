@@ -41,7 +41,7 @@ existing defects; selection review is more suitable for this prepared fixture.
 
 ## 3. Inspect / accept / modify / reject (7 minutes)
 
-For each suggestion, write one decision in your own notes:
+For each suggestion from the previous section, write one decision in your own notes:
 
 | Decision | Evidence needed |
 | --- | --- |
