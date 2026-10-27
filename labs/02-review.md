@@ -17,12 +17,19 @@ calculator; treat it as a proposed replacement, not an approved implementation.
 
 ## 2. Local review (8 minutes)
 
-Select the fixture's code. Right-click **Generate Code > Review**. Current
-VS Code labels can vary by release. This local selection review does not
-create a PR or commit changes.
+1. In `fixtures/review/WeeklyQuote.proposed.cs`, press **Ctrl+A** to select
+   the code.
+2. Press **Ctrl+Shift+P** to open the Command Palette.
+3. Search for **Chat: Review** and run it.
 
-For a reproducible prompt-based comparison, attach the fixture and both
-instruction files to Chat:
+Depending on your VS Code/Copilot version, the same action may also be available
+by right-clicking **Generate Code > Review**. You do not need that menu to use
+the Command Palette. This local selection review does not create a PR or commit
+changes.
+
+If **Chat: Review** is also unavailable, or for a reproducible prompt-based
+comparison, attach the fixture and both instruction files to Chat and use this
+read-only review prompt:
 
 ```text
 Review this proposed calculator against the attached business contract and
@@ -90,3 +97,7 @@ calculator; no app checkpoint was modified by this exercise.
 Sources: [local and PR review workflows](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-code-review),
 [repository and path instructions](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions),
 [review concepts and availability](https://docs.github.com/en/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/code-review).
+
+---
+
+Next: [Exercise 03: Tests](03-tests.md)

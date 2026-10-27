@@ -41,6 +41,11 @@ Do not switch branches, commit, or push. Wait for my approval before editing.
 
 ## 2. Execute and verify (10 minutes)
 
+Before running the command below, be sure to switch back to Agent mode from Upgrade mode.
+<img src="../docs/images/agentMode.png" alt="Open the Agent picker in Copilot Chat and choose Upgrade, with both controls highlighted." width="600">
+
+
+
 ```text
 Apply the approved .NET 10 upgrade only in starter. Update the
 SDK pin and target framework coherently, preserve all business behavior, build,
@@ -55,6 +60,7 @@ In the terminal at `starter`:
 
 ```text
 dotnet --version
+cd .\starter
 dotnet build BookingLab
 dotnet run --project BookingLab --no-launch-profile --urls http://127.0.0.1:5180
 ```
@@ -108,3 +114,7 @@ destructive reset commands are required.
 Sources: [install and invoke Upgrade](https://learn.microsoft.com/dotnet/core/porting/github-copilot-upgrade/install),
 [.NET breaking changes](https://learn.microsoft.com/dotnet/core/compatibility/),
 [VS Code instructions](https://code.visualstudio.com/docs/agent-customization/custom-instructions).
+
+---
+
+Next: [Exercise 02: Review](02-review.md)

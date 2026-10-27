@@ -81,3 +81,7 @@ local verification as blocked, not passed.
 
 Official source (tool names and launch workflow verified October 2026):
 [Java upgrade quickstart](https://learn.microsoft.com/azure/developer/github-copilot-app-modernization/quickstart-upgrade).
+
+---
+
+[Back to the workshop](../README.md)
