@@ -64,30 +64,108 @@ If no comments appear, manually evaluate 0 nights and exactly 7 nights and
 explain whether the contract is met. Do not inspect worked answers in `reference`
 during the exercise.
 
-## 4. GitHub PR review demonstration (5 minutes)
+## 4. GitHub PR review demonstration (optional, 5 minutes)
 
-This is distinct from local review. Use an attendee-owned fork and a new branch
-if demonstrating it; do not request write access to this public training repo.
-If you are attending a class, follow along with the instructor's existing PR
-instead of configuring a fork when directed. Do not publish generated answers
-or secrets.
+This is distinct from local review: the review happens on GitHub, on a pull
+request (PR). It is **optional for attendees**. If your instructor is
+demonstrating it, follow along on their PR instead of setting up your own.
 
-In a fork, make a harmless fixture-only change on a new branch, commit and
-push it, then open a PR. On GitHub's PR sidebar, request **Copilot** as reviewer.
-Availability depends on plan, repository/org settings and quotas; chat access
-alone does not ensure PR review access. Agentic review can use GitHub Actions
-and incur usage; inspect current billing/policy before enabling it.
+**Ground rules**
 
-Repository-wide and path-specific instruction support is documented for review.
-Verify instructions are enabled and present on the branch used by your current
-review implementation; current docs say PR review reads instructions from the
-**head** branch. Do not assume that changing a custom-agent file selects that
-agent for the GitHub PR reviewer: these are different surfaces.
+- Use **your own fork** and a **new branch**. Do not ask for write access to
+  this public training repo, and never open the PR against the upstream repo.
+- Change only a fixture. Leave `starter/BookingLab` and `reference` untouched.
+- Do not publish generated answers or secrets.
+- Copilot PR review depends on your plan, repository/org settings and quotas;
+  Copilot Chat access alone does not guarantee it. Agentic review can use
+  GitHub Actions and incur usage, so check your billing/policy first. If
+  **Copilot** does not appear under **Reviewers**, use the local review or
+  the read-only prompt from section 2 instead.
 
-Read suggestions as proposals. Accept, adapt or reject with evidence; resolve
-threads after fixing and verifying; request re-review when necessary. Copilot
-does not necessarily reply to thread discussion, and resolving a thread does
-not fix code. AI review is not a substitute for required human approval or CI.
+### Create the branch and a reviewable fixture
+
+Review focuses on lines that changed in the PR. Renaming a class would leave
+the existing defects out of the diff, so add the fixture as a **new file**.
+From the repository root in a terminal, in your fork's clone:
+
+```powershell
+git switch -c review/<your-name>-weekly-quote
+Copy-Item fixtures/review/WeeklyQuote.proposed.cs fixtures/review/WeeklyQuote.pr.cs
+```
+
+In `WeeklyQuote.pr.cs`, rename `ProposedQuoteCalculator` to
+`PrQuoteCalculator`. The fixture is still never compiled or served. Then:
+
+```powershell
+git add fixtures/review/WeeklyQuote.pr.cs
+git commit -m "Add weekly quote fixture for Copilot review"
+git push -u origin review/<your-name>-weekly-quote
+```
+
+### Open the PR against your fork
+
+1. On your fork on GitHub, click **Compare & pull request**.
+2. Check the **base repository** at the top of the page. GitHub may default to
+   the upstream repo; change it to **your fork** so the base is your fork's
+   `main` and the compare branch is your new branch.
+3. Title it, for example, `Review a proposed weekly quote calculator`.
+4. In the description box, click the **Copilot actions** button in the
+   toolbar and choose the option to generate a summary. Copilot drafts a
+   description from your changes, so you can skip writing one by hand.
+   Availability depends on your plan and settings.
+
+   ![The Add a description box on a new pull request, with the Copilot actions button highlighted in the toolbar.](../docs/images/pr-copilot-actions.png)
+
+5. Read the generated summary and edit it. It should say that the file is an
+   inert fixture and ask for concrete findings only (an exact input, actual
+   result, expected result and a minimal fix). If the button is unavailable,
+   paste the business contract from `.github/copilot-instructions.md` and
+   write these points yourself.
+6. Click **Create pull request**.
+
+### Request the Copilot review
+
+Copilot reads repository and path-specific instructions from the **head**
+branch (the branch with your changes). Your branch has
+`.github/copilot-instructions.md` and
+`.github/instructions/csharp.instructions.md` as long as you did not delete
+them from your fork. Do not assume that changing a custom-agent file selects
+that agent for the GitHub PR reviewer; these are different surfaces.
+
+1. In the PR sidebar, find **Reviewers**.
+2. Next to **Copilot**, click **Request**.
+3. Wait (typically under a minute), then read the **Files changed** comments.
+
+Posting `@copilot review` in a comment does not start this review; use the
+sidebar request. Copilot leaves a *Comment* review, not an approval, so it
+does not satisfy required approvals.
+
+### Triage the findings
+
+Read suggestions as proposals. Findings are not guaranteed; if none appear,
+manually evaluate 0 nights and exactly 7 nights against the contract.
+For each comment, choose Accept, Modify, Reject or Investigate using the table
+in section 3 and verify the arithmetic yourself.
+
+- You can apply a correct suggestion from the comment, or edit the fixture and
+  push another commit.
+- You can reply to a comment to record your reasoning for human readers.
+  Copilot does not necessarily see or answer thread discussion, so a reply is
+  not an instruction to Copilot.
+- Resolving a thread does not fix code. Resolve it only after fixing and
+  verifying.
+- After you push changes, Copilot does not necessarily review again. Click the
+  **Re-request review** icon beside Copilot in the **Reviewers** section.
+  A re-review may repeat comments you have already resolved.
+
+AI review is not a substitute for required human approval or CI. This
+fixture is not compiled, so a green CI run does not prove its calculations are
+correct.
+
+### Clean up
+
+This is a disposable practice PR. Close it without merging; you can delete the
+branch afterward.
 
 **Exit check:** explain one finding with an exact input and why another proposed
 suggestion could reasonably be rejected. Leave the production app unchanged.
