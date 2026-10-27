@@ -3,32 +3,51 @@
 **Start:** your upgraded app and tests. **Finish:** one small requirement change
 with a reviewed diff and test evidence. Keep reference checkpoints unchanged.
 
+If the upgraded app or test sources are missing, complete the earlier labs first
+rather than adding an upgrade or test framework to this challenge.
+
 New requirement: stays of **14 or more nights receive 15% off**, replacing,
 not stacking with, the 10% weekly discount. Stays of 7..13 nights still receive
 10%. All input bounds, pricing and error behavior remain unchanged.
 
 ## Plan (3 minutes)
 
+In Chat, select **Plan** mode and paste the prompt below. Discuss considerations,
+answer any genuine open questions, and review the resulting plan. Requirements
+already stated do not need a separate confirmation.
+
 <img src="../docs/images/planMode.png" alt="Change to the Plan Mode." width="400">
 
 ```text
-Plan a minimal change for a 15% long-stay discount beginning at exactly
-14 nights, replacing rather than stacking with the weekly discount.
-Do not inspect reference solutions. Give independent totals for 13, 14,
-and 30 nights with 2 guests. Identify code, UI wording, instruction contract,
-unit tests and browser tests that need to change. Wait before editing.
+Plan only; do not edit repository files or run installs or tests yet.
+Inspect the app and tests under starter, not reference solutions.
+Plan a minimal change: 7..13 nights still receive 10% off; 14..30 nights
+receive only 15% off, replacing rather than stacking with the weekly discount.
+Keep input bounds, pricing, rounding and error behavior unchanged.
+
+Give independently calculated totals for 13, 14 and 30 nights with 2 guests.
+Identify exact code, UI wording, instruction contract, unit-test and browser-test
+files to change. Include boundary tests for 13 and 14 nights and update affected
+maximum-boundary expectations. Preserve existing API validation, error tests
+and stale-total clearing.
+
+Keep implementation changes only under starter. Put the challenge-specific
+contract under starter/.github; leave shared root instructions unchanged.
+Plan to run unit and managed-server browser tests during implementation and
+report actual commands and results. Do not change SDK or target frameworks,
+edit reference checkpoints, commit, or push.
+
+Do not ask me to reconfirm stated requirements. List considerations and missing
+prerequisite lab outputs in the plan; do not silently add an upgrade or test
+framework. Ask only about unresolved decisions that materially change scope
+or behavior. Keep implementation deferred until I click Start Implementation.
 ```
 
 ## Implement and test (9 minutes)
 
-```text
-Apply the approved change only under starter. Add boundary tests
-for 13 and 14 nights and update any affected maximum-boundary expectations.
-Update the visible pricing explanation and this workspace's business
-instructions so they agree. Preserve existing API validation and error tests.
-Run unit and managed-server browser tests; report actual results.
-Do not edit reference checkpoints, commit, or push.
-```
+Once the plan is ready, click **Start Implementation** to apply it and run its
+validation steps. No second prompt or extra approval message is needed. Check
+the actual unit and managed-server browser test results before moving to review.
 
 If working in `starter`, repository-wide instructions are shared with the
 training repo: put the challenge-specific contract in a new instruction file
