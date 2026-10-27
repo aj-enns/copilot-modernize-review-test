@@ -8,8 +8,15 @@ read a reference if you want it explained. Keep the repository root open.
 
 ## 1. Instructions-first unit tests (15 minutes)
 
-Use built-in Agent with the repository instructions active. Invoke
-`/quote-tests` if available, or copy this prompt:
+Choose either option with built-in **Agent** and repository instructions active:
+
+- **Copilot:** paste the prompt below.
+- **Local:** run `/quote-tests`, or paste the prompt below.
+
+To switch, click **New Chat (+)** at the top of Chat, then choose
+**Session Target > Copilot** or **Local** before sending your first message.
+Existing chats cannot switch. If **Local** is unavailable, use **Copilot**.
+The custom **Test coach** agent is used in section 2.
 
 ```text
 Read starter/BookingLab/QuoteCalculator.cs and our business contract, not reference
@@ -29,10 +36,11 @@ not `reference`. Example known-compatible package versions are Test SDK
 compatibility before accepting. It should not add a database or mocking package
 to test this pure calculator.
 
-In a new terminal at repository root:
+In a new terminal at repository root (assuming you are root folder):
 
 ```text
-dotnet test starter/tests/BookingLab.Tests
+cd .\starter\
+dotnet test tests/BookingLab.Tests
 ```
 
 Expected independently computed totals: 1/1 = 110, 6/2 = 720, 7/2 = 756,
@@ -44,7 +52,8 @@ Git reset or discard unrelated changes.
 
 ## 2. Custom-agent browser tests (20 minutes)
 
-Select **Test coach** in the agent picker. Read
+Select **Test coach** in the agent picker and paste the browser-test prompt below.
+Read
 `.github/agents/test-coach.agent.md` to see the named role and bounded behavior.
 It has no hardcoded model or brittle tool IDs; normal permissions still apply.
 Unlike auto-applied instructions, this role must be selected.
@@ -124,3 +133,7 @@ Sources: [custom agents](https://code.visualstudio.com/docs/agent-customization/
 [prompt files](https://code.visualstudio.com/docs/agent-customization/prompt-files),
 [Playwright webServer](https://playwright.dev/docs/test-webserver),
 [xUnit getting started](https://xunit.net/docs/getting-started/v2/getting-started).
+
+---
+
+Next: [Exercise 04: Challenge](04-challenge.md)

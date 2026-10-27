@@ -81,10 +81,16 @@ do not change machine-wide execution policy.
 
 ## During the 15-minute orientation
 
-In Copilot Chat, select **Local** if a harness selector appears, then **Agent**.
-Check for **Test coach** in the agent picker and `/quote-tests` in the prompt
-picker. If missing, check **Chat: Open Customizations** or use the labs' copy/paste
-prompts. Inspect the lab before accepting any folder-trust request.
+In Copilot Chat, choose either:
+
+- **Copilot:** use the labs' copy/paste prompts.
+- **Local:** use optional prompt-file shortcuts such as `/quote-tests`, or paste.
+
+To switch, click **New Chat (+)** at the top of Chat, then choose
+**Session Target > Copilot** or **Local** before your first message.
+Existing chats cannot switch. If **Local** is unavailable, use **Copilot**.
+Select **Agent** unless the lab asks for **Test coach** in the agent picker.
+Inspect the lab before accepting any folder-trust request.
 
 Choose **Terminal > New Terminal** at repository root (the folder containing
 `README.md`). Run these commands in PowerShell or bash:

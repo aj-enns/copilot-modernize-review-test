@@ -55,3 +55,7 @@ Compare outcomes, not prompt wording. Record one accepted suggestion, one
 rejected or modified suggestion, and the command that verifies your change.
 Discuss when human review, broader integration tests and dependency migration
 research would be necessary in a real application.
+
+---
+
+Next: [Exercise 05: Java (optional)](05-java-optional.md)
