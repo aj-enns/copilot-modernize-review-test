@@ -28,6 +28,13 @@ PR review access and billing can differ from chat. Review agent permission
 requests; do not enable blanket approval or upload secrets or private data.
 No MCP server is needed.
 
+### Optional Java prerequisites
+
+Only if you plan to do the extra Java exercise, complete the
+[Java setup guide](java-setup.md) before the event. It covers JDKs 17 and 21,
+Maven, VS Code's Java tooling, and the Java modernization extension. These are
+not required for the main .NET workshop.
+
 ## Clone and warm dependencies (before the event)
 
 In a terminal, go to the folder where you keep projects, then run:

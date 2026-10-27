@@ -11,6 +11,9 @@ the marketplace identifier containing "azure"; this exercise needs no Azure
 account. Use the extension's current supported version and confirm org policy.
 Do not confuse it with the .NET **GitHub Copilot upgrade** extension.
 
+For installation steps, JDK switching commands, version checks, and
+troubleshooting, complete the [optional Java setup guide](../docs/java-setup.md).
+
 Use your JDK installation's environment selector to set `JAVA_HOME` and put its
 `bin` on PATH, then verify `java -version` and `mvn -version`. Maven must report
 the intended JDK, not just VS Code's language server. Both source and target

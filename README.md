@@ -34,6 +34,7 @@ steps, then continue with Labs 2, 3, and 4 below.
 | **Total** | **150** |
 
 The optional [Java exercise](labs/05-java-optional.md) is outside the 150 minutes.
+Complete its [Java setup guide](docs/java-setup.md) beforehand.
 
 ## Repository map
 
