@@ -9,6 +9,8 @@ not stacking with, the 10% weekly discount. Stays of 7..13 nights still receive
 
 ## Plan (3 minutes)
 
+<img src="../docs/images/planMode.png" alt="Change to the Plan Mode." width="400">
+
 ```text
 Plan a minimal change for a 15% long-stay discount beginning at exactly
 14 nights, replacing rather than stacking with the weekly discount.
