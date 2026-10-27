@@ -70,6 +70,9 @@ cd ../..
 code .
 ```
 
+Run npm commands inside `reference/e2e`, not `reference`. If already in
+`reference`, run `cd e2e` first.
+
 `code .` opens the repository folder in VS Code. Alternatively, use **File >
 Open Folder...**. You should see `README.md`, `starter`, and `.github`.
 
