@@ -1,7 +1,7 @@
 // Training-only proposed replacement. Not compiled or served by the application.
 namespace BookingLab;
 
-public sealed class ProposedQuoteCalculator
+public sealed class PrQuoteCalculator
 {
     public decimal Calculate(int nights, int guests)
     {
